@@ -9,11 +9,32 @@ async function addStudent() {
   const marks = document.getElementById("marks").value;
   const totalMarks = document.getElementById("totalMarks").value;
 
-  // ✅ Validation Check
   if (!studentId || !name || !course || !marks || !totalMarks) {
     alert("Please fill in all fields.");
     return;
   }
+
+  try {
+    const response = await fetch(`${backendUrl}/add-student`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ studentId, name, course, marks, totalMarks }),
+    });
+
+    const data = await response.json();
+    console.log("📤 Response Data:", data); // ✅ Log response in console
+
+    if (response.ok) {
+      alert("✅ Student Added Successfully!");
+    } else {
+      alert(`❌ Failed to add student: ${data.error}`);
+    }
+  } catch (error) {
+    console.error("❌ Fetch Error:", error); // ✅ Log full error in console
+    alert("❌ Failed to add student. Check console for details.");
+  }
+}
+
 
   try {
     const response = await fetch(`${backendUrl}/add-student`, {
