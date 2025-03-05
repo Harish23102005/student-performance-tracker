@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Enter Student Marks</h2>
+    <input type="text" id="studentId" placeholder="Student ID">
+    <input type="text" id="name" placeholder="Student Name">
+    <input type="text" id="course" placeholder="Course Name">
+    <input type="number" id="marks" placeholder="Marks">
+    <input type="number" id="totalMarks" placeholder="Total Marks">
+    <button onclick="addStudent()">Submit</button>
+
+    <h2>Track Student Performance</h2>
+    <input type="text" id="trackStudentId" placeholder="Enter Student ID">
+    <button onclick="fetchPerformance()">Track Performance</button>
+
+    <canvas id="performanceChart"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
