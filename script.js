@@ -1,4 +1,5 @@
-const backendUrl = "https://outcome-system-backend.onrender.com";
+const backendUrl =
+  process.env.BACKEND_URL || "https://outcome-system-backend.onrender.com";
 
 // ✅ Add Student Marks
 async function addStudent() {
