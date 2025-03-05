@@ -35,20 +35,18 @@ async function addStudent() {
   }
 }
 
+try {
+  const response = await fetch(`${backendUrl}/add-student`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ studentId, name, course, marks, totalMarks }),
+  });
 
-  try {
-    const response = await fetch(`${backendUrl}/add-student`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ studentId, name, course, marks, totalMarks }),
-    });
-
-    const data = await response.json();
-    alert("Student Added Successfully!");
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Failed to add student. Try again.");
-  }
+  const data = await response.json();
+  alert("Student Added Successfully!");
+} catch (error) {
+  console.error("Error:", error);
+  alert("Failed to add student. Try again.");
 }
 
 // ✅ Fetch Student Performance Data
